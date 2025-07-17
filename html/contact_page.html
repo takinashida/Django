@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Контакты</title>
-    <link href="../styles/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/styles/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body  style="background-color: #ffebf7;">
     <div class="row">
         <div class="col-3 d-flex flex-column min-vh-100" style="background: linear-gradient(0deg, #000000, #660001);">
             <div class="text-center position-relative">
-                <img src="../styles/icons/Fish_logo.png" width="64" height="64" alt="logo"
+                <img src="/styles/icons/Fish_logo.png" width="64" height="64" alt="logo"
                      class="position-absolute top-0 start-0 ms-3 mt-1">
                 <h1 class="mt-2 text-white">
                     <span>Меню</span>
@@ -17,7 +17,7 @@
                 <hr class="border-white">
             </div>
             <div class = "p-3 d-flex flex-column gap-3">
-                <button type="button" onclick="window.location.href='../html/main_page.html'"
+                <button type="button" onclick="window.location.href='/html/main_page.html'"
                         class="btn text-white" style="background-color: #660001;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none"
                          stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -29,7 +29,7 @@
                     </svg>
                     Главная
                 </button>
-                <button type="button" onclick="window.location.href='../html/categories/animated_fish.html'"
+                <button type="button" onclick="window.location.href='/html/categories/animated_fish.html'"
                         class="btn text-white" style="background-color: #660001;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none"
                          stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -39,7 +39,7 @@
                     </svg>
                     Рыбы
                 </button>
-                <button type="button" onclick="window.location.href='../html/catalog_page.html'"
+                <button type="button" onclick="window.location.href='/html/catalog_page.html'"
                         class="btn text-white" style="background-color: #660001;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none"
                          stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -88,40 +88,42 @@
             </div>
         </div>
 
-        <div class="col-9 text-center position-relative mt-3">
+        <div class="col-9 text-center position-relative">
             <h1>Контакты</h1>
             <div class = "row">
-            <div class="col-4 text-center position-relative mt-3">
-                  <div class="card border-0 shadow-lg"
-                             style=" background-color: #ffebf7; width: 40rem; height: 40rem;">
-                        <div class="card-body">
-                            <form method="post" action="/">
-                                <h2>Оставьте заявку</h2>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Имя" name="username">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="Email" name="email">
-                                </div>
+                <div class="d-flex" style = "gap: 10rem;">
+                    <div class="col-4 text-center position-relative mt-3">
+                          <div class="card border-0 shadow-lg"
+                                     style=" background-color: #ffebf7; width: 30rem; height: 30rem;">
+                                <div class="card-body">
+                                    <form method="post" action="/">
+                                        <h2>Оставьте заявку</h2>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Имя" name="username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" placeholder="Email" name="email">
+                                        </div>
 
-                                <div class="mb-3">
-                                    <textarea class="form-control" placeholder="Сообщение" rows="10" name="message"></textarea>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" placeholder="Сообщение" rows="10" name="message"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn text-white w-100" style="background-color: #660001;">Отправить</button>
+                                    </form>
                                 </div>
-                                <button type="submit" class="btn text-white w-100" style="background-color: #660001;">Отправить</button>
-                            </form>
-                        </div>
-                  </div>
-                </div>
+                          </div>
+                    </div>
 
-            <div class="col-4 text-center position-relative mt-3">
-                  <div class="card border-0 shadow-lg"
-                             style=" background-color: #ffebf7; width: 40rem; height: 40rem;">
-                        <div class="card-body">
-                            <span class="fs-4">Здесь вы можете связаться с нами если заметите еще каких-нибудь рыбов
-                                и хотите поделиться ими по всеми. Но учтите, что поддержка ушла смотреть на рыбов
-                                и не может заняться рассмотрением вашего запроса.</span>
-                        </div>
-                  </div>
+                    <div class="col-4 text-center position-relative mt-3">
+                          <div class="card border-0 shadow-lg"
+                                     style=" background-color: #ffebf7; width: 30rem; height: 30rem;">
+                                <div class="card-body">
+                                    <span class="fs-4">Здесь вы можете связаться с нами если заметите еще каких-нибудь рыбов
+                                        и хотите поделиться ими по всеми. Но учтите, что поддержка ушла смотреть на рыбов
+                                        и не может заняться рассмотрением вашего запроса.</span>
+                                </div>
+                          </div>
+                    </div>
                 </div>
             </div>
         </div>
