@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Типы Рыбов</title>
+    <link href="../styles/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #ffebf7;">
+<div class="row">
+    <div class="col-3 d-flex flex-column min-vh-100" style="background: linear-gradient(0deg, #000000, #660001);">
+        <div class="text-center position-relative">
+            <img src="../styles/icons/Fish_logo.png" width="64" height="64" alt="logo"
+                 class="position-absolute top-0 start-0 ms-3 mt-1">
+            <h1 class="mt-2 text-white">
+                <span>Меню</span>
+            </h1>
+            <hr class="border-white">
+        </div>
+        <div class="p-3 d-flex flex-column gap-3">
+            <button type="button" onclick="window.location.href='../html/main_page.html'"
+                    class="btn text-white" style="background-color: #660001;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none"
+                     stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-align-justify">
+                    <line x1="21" y1="10" x2="3" y2="10"></line>
+                    <line x1="21" y1="6" x2="3" y2="6"></line>
+                    <line x1="21" y1="14" x2="3" y2="14"></line>
+                    <line x1="21" y1="18" x2="3" y2="18"></line>
+                </svg>
+                Главная
+            </button>
+            <button type="button" onclick="window.location.href='../html/categories/animated_fish.html'"
+                    class="btn text-white" style="background-color: #660001;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none"
+                     stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-eye">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                Рыбы
+            </button>
+            <button type="button" onclick="window.location.href='../html/catalog_page.html'"
+                    class="btn text-white" style="background-color: #660001;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none"
+                     stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-archive">
+                    <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                    <rect x="1" y="3" width="22" height="5"></rect>
+                    <line x1="10" y1="12" x2="14" y2="12"></line>
+                </svg>
+                Типы Рыбов
+            </button>
+            <button type="button" onclick="window.location.href='../html/contact_page.html'"
+                    class="btn text-white" style="background-color: #660001;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none"
+                     stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-phone">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Контакты Рыбов
+            </button>
+        </div>
+        <div class="mt-auto pb-3 text-center text-white">
+            <img src="../styles/icons/avatar.jpg" width="48" height="48" alt="avatar"
+                 class="rounded-circle"
+                 style="object-fit: cover;">
+            <div class="btn-group dropup">
+                <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" style="background-color: #000000;">
+                    <span class="fs-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none"
+                             stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-user">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Пользователь
+
+                    </span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end fs-5" style="background: linear-gradient(0deg, #100000, #240000);">
+
+                    <li><a class="dropdown-item text-white" href="#">Профиль</a></li>
+                    <li><a class="dropdown-item text-white" href="#">Настройки</a></li>
+                    <li><hr class="dropdown-divider border-white"></li>
+                    <li><a class="dropdown-item text-white" href="#">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-9 text-center position-relative mt-3">
+        <h1>Типы Рыбов</h1>
+        <div class="card border-0 shadow-lg mx-auto" style="background-color: #ffebf7; width: 40rem;">
+            <div class="card-body">
+                <p class="fs-4">Здесь будет представлен каталог различных типов рыбов и их краткое описание.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../styles/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
