@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from blog.apps import BlogConfig
-from blog.views import home, contacts
+from catalog.apps import BlogConfig
+from catalog.views import home, contacts
 
 app_name = BlogConfig.name
 
