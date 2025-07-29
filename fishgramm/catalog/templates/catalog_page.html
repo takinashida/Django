@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<!-- Контент -->
+<div class="col-9">
+    <div class="row justify-content-center">
+        {% for product in products %}
+        <div class="col-md-4 d-flex justify-content-center align-items-stretch p-3">
+            <div class="card border-0 shadow-lg w-100" style="background-color: #ffebf7;">
+                <div class="text-center">
+                    <span class="fs-3 p-3">{{ product.name }}</span>
+                    <br>
+                    <span class="fs-6">{{ product.category.name }}</span>
+                </div>
+                <hr>
+                <img src="{{ product.img.url }}" class="card-img-top" alt="preview">
+                <div class="card-body">
+                    <p class="card-text">{{ product.description| truncatechars:100 }}</p>
+                    <button class="btn text-white" style="background-color: #660001;">{{ product.price }}$</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
