@@ -30,11 +30,20 @@ def catalog_page(request, page):
         end_product = start_product+6
         if ceil(products.count()/per_page)*page > len(products):
             end_product = len(products)
-    return render(
-            request, "catalog_page.html",
-    {'products':products[start_product:end_product]}
-                      )
+        return render(
+                request, "catalog_page.html",
+        {'products':products[start_product:end_product]}
+                          )
     return HttpResponse(404)
+
+def product(request, id):
+    product = Product.objects.get(id=id)
+    return render(
+        request, "product.html",
+        {'product': product}
+    )
+
+
 
 def add_product(request):
     form = ProductForm(request.POST, request.FILES)
