@@ -36,7 +36,7 @@ source .venv/bin/activate  # или .venv\Scripts\activate на Windows
 pip install -r requirements.txt
 ```
 
-4. Запусти cервер:
+4. Запусти сервер:
 
 ```bash
 python manage.py runserver
