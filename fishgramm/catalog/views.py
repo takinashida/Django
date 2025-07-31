@@ -3,6 +3,7 @@ from math import ceil
 from django.shortcuts import render
 from catalog.forms import ProductForm
 from catalog.models import Product, Contacts
+from django.shortcuts import get_object_or_404
 
 
 def home(request):
@@ -30,11 +31,22 @@ def catalog_page(request, page):
         end_product = start_product+6
         if ceil(products.count()/per_page)*page > len(products):
             end_product = len(products)
-    return render(
+        return render(
             request, "catalog_page.html",
     {'products':products[start_product:end_product]}
                       )
     return HttpResponse(404)
+
+def product_page(request, id):
+    product = Product.objects.get(id=id)
+    return render(
+        request, "product_page.html",
+        {'product': product}
+    )
+
+
+
+
 
 def add_product(request):
     form = ProductForm(request.POST, request.FILES)
