@@ -1,12 +1,18 @@
 from django.contrib import admin
 from django.urls import path, include
-from catalog.apps import BlogConfig
-from catalog.views import home, contacts
+from catalog.apps import CatalogConfig
+from catalog.views import home, contacts, catalog_page, add_product, product_page
 
-app_name = BlogConfig.name
+
+
+app_name = CatalogConfig.name
 
 urlpatterns = [
     path('', home, name='index'),
-    path('contacts/', contacts, name='contacts')
+    path('contacts/', contacts, name='contacts'),
+    path('catalog_page/<int:page>', catalog_page, name='catalog_page'),
+    path('add_product/', add_product, name='add_product'),
+    path('catalog_page/<int:page>/', catalog_page, name='catalog_page'),
+    path('product_page/<int:id>/', product_page, name='product_page'),
 ]
 
