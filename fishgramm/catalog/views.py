@@ -3,66 +3,45 @@ from math import ceil
 from django.shortcuts import render
 from catalog.forms import ProductForm
 from catalog.models import Product, Contacts
-from django.shortcuts import get_object_or_404
+from django.urls.base import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic.edit import UpdateView, DeleteView
+from django.views import View
+
+class HomeView(View):
+    def get(self, request):
+        return render(request, "home.html")
+
+class ContactsSuccessView(View):
+    def get(self, request):
+        return render(request, "catalog/contacts_success.html")
+
+class ContactsCreateView(CreateView):
+    model = Contacts
+    fields = ('name', 'email', 'message')
+    success_url = reverse_lazy("catalog:contacts_success")
+
+class ProductListView(ListView):
+    model = Product
+
+class ProductDetailView(DetailView):
+    model = Product
+
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ("name","description", "img", "category", "price" )
+    success_url = reverse_lazy("catalog:product_list")
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ("name","description", "img", "category", "price" )
+    success_url = reverse_lazy("catalog:product_list")
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy("catalog:product_list")
 
 
-def home(request):
-    products = Product.objects.order_by('created_at')[:5]
-    for product in products:
-        print(product)
-    return render(request, "home.html", {'products': products})
-
-def contacts(request):
-    if request.method == "POST":
-        name = request.POST.get("name"),
-        email = request.POST.get("email"),
-        message = request.POST.get("message")
-        Contacts.objects.get_or_create(name=name,
-                                       email=email,
-                                       message=message)
-        return HttpResponse(f"Спасибо, {name[0]}! Ваше сообщение получено.")
-    return render(request, "contacts.html")
-
-def catalog_page(request, page):
-    per_page = 6
-    products = Product.objects.all()
-    if 1 <= page <= ceil(products.count()/per_page):
-        start_product = (page - 1) * 6
-        end_product = start_product+6
-        if ceil(products.count()/per_page)*page > len(products):
-            end_product = len(products)
-        return render(
-            request, "catalog_page.html",
-    {'products':products[start_product:end_product]}
-                      )
-    return HttpResponse(404)
-
-def product_page(request, id):
-    product = Product.objects.get(id=id)
-    return render(
-        request, "product_page.html",
-        {'product': product}
-    )
-
-
-
-
-
-def add_product(request):
-    form = ProductForm(request.POST, request.FILES)
-    if request.method == "POST":
-        if form.is_valid():
-            Product.objects.create(
-                name= form.cleaned_data["name"],
-                description = form.cleaned_data["description"],
-                img = form.cleaned_data["img"],
-                price = form.cleaned_data["price"],
-                category = form.cleaned_data["category"],
-            )
-            return HttpResponse(f"Спасибо! Ваше сообщение получено.")
-        else:
-            return HttpResponse(f"Проверьте ваши данные.")
-    return render(request, "add_product.html", {'form': form})
 
 
 

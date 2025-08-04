@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--p7apm-x*di5fru3z@t^7flh0l%ivj%ctg95sl%@8ay5oz6)7)'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.getenv('DEBUG') == 'True' else False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +80,12 @@ WSGI_APPLICATION = 'fishgramm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT')
     }
 }
 
@@ -125,3 +134,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.mail.ru"            # Почтовый сервер
+EMAIL_PORT = 587                       # TLS-порт
+EMAIL_USE_TLS = True                     # всегда используем TLS
+EMAIL_USE_SSL = False                    # не используем SSL
+EMAIL_HOST_USER = os.getenv('EMAIL_USER')     # почта
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASS')  # app password
+DEFAULT_FROM_EMAIL = "<no-reply@fishgramm.com>"

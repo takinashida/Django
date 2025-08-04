@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block title %}Блог{% endblock %}
+
+{% block content %}
+<!-- Контент -->
+<div class="col-9" style="background-color:#dbe9ff">
+    <div class="row justify-content-center">
+        {% for object in object_list %}
+        <div class="col-md-10 d-flex justify-content-center align-items-stretch p-3">
+            <div class="card border-0 shadow-lg w-100" style="background-color: #bcecf0;">
+                <div class="text-center">
+                    <span class="fs-3 p-3">{{ object.title }}</span>
+                </div>
+                <hr>
+                <img src="{{ object.preview.url }}" class="card-img-top" alt="preview">
+                <div class="card-body">
+                    <p class="card-text">{{ object.text| truncatechars:100 }}</p>
+                    <p>Количество просмотров:{{ object.views_counter}}</p>
+                    <div class="text-center">
+                        <a href="{% url 'blog:post_detail' object.pk %}" class="btn w-100" style="background-color: #019ff9;">Открыть полностью</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -5,7 +5,7 @@
 <!-- Контент -->
 <div class="col-9">
     <div class="row justify-content-center">
-        {% for product in products %}
+        {% for product in object_list %}
         <div class="col-md-4 d-flex justify-content-center align-items-stretch p-3">
             <div class="card border-0 shadow-lg w-100" style="background-color: #ffebf7;">
                 <div class="text-center">
@@ -17,7 +17,9 @@
                 <img src="{{ product.img.url }}" class="card-img-top" alt="preview">
                 <div class="card-body">
                     <p class="card-text">{{ product.description| truncatechars:100 }}</p>
-                    <button class="btn text-white" style="background-color: #660001;">{{ product.price }}$</button>
+                    <a href="{% url 'catalog:product_detail' product.pk %}" class="btn text-white" style="background-color: #660001;">{{ product.price }}$</a>
+                    <a href="{% url 'catalog:product_update' product.pk %}" class="btn text-white" style="background-color: #660001;">Изменить {{ product.name }}</a>
+                    <a href="{% url 'catalog:product_delete' product.pk %}" class="btn text-white" style="background-color: #660001;">Удалить {{ product.name }}</a>
                 </div>
             </div>
         </div>
