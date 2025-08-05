@@ -19,8 +19,8 @@ class Command(BaseCommand):
         Category.objects.all().delete()
         Product.objects.all().delete()
 
-        category1, _ =Category.objects.get_or_create(name='Овощи', description='Полезные и питательные')
-        category2, _ =Category.objects.get_or_create(name='Фрукты', description='Сладкие и вкусные')
+        category1, _ = Category.objects.get_or_create(name='Овощи', description='Полезные и питательные')
+        category2, _ = Category.objects.get_or_create(name='Фрукты', description='Сладкие и вкусные')
 
         base_path = Path.joinpath(MEDIA_ROOT, 'contents', 'image')
 
