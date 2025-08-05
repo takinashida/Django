@@ -1,19 +1,19 @@
-<div class="col-3 d-flex flex-column" style="background: linear-gradient(0deg, #000000, #660001);">
+<div class="col-3 d-flex flex-column" style="background: linear-gradient(180deg, #c7ddff, #003385);">
     <div class="text-center position-relative mt-2">
         <img src="/static/icons/Fish_logo.png" width="64" height="64" alt="logo"
              class="position-absolute top-0 start-0 ms-3 mt-1">
-        <h1 class="text-white mt-4">Меню</h1>
-        <hr class="border-white">
+        <h1 class=" mt-4">Меню</h1>
+        <hr>
     </div>
 
     <div class="p-3 d-flex flex-column gap-3">
-        <a href="{% url 'catalog:index' %}" class="btn text-white" style="background-color: #660001;">
+        <a href="{% url 'blog:post_list' %}" class="btn " style="background-color: #019ff9;">
             Главная
         </a>
-        <a href="{% url 'catalog:product_list' %}" class="btn text-white" style="background-color: #660001;">Все товары</a>
-        <a href="{% url 'catalog:product_form' %}" class="btn text-white" style="background-color: #660001;">Добавить продукт</a>
-        <a href="{% url 'catalog:contacts' %}" class="btn text-white" style="background-color: #660001;">
-            Контакты Главных Котеков
+        <a href="{% url 'blog:post_form' %}" class="btn " style="background-color: #019ff9;">Добавить пост</a>
+        <hr>
+        <a href="{% url 'catalog:product_list' %}" class="btn " style="background-color: #019ff9;">
+            Продукты
         </a>
     </div>
 
@@ -22,11 +22,11 @@
              class="rounded-circle" style="object-fit: cover;">
         <div class="btn-group dropup">
             <button class="btn dropdown-toggle text-white mt-2" data-bs-toggle="dropdown"
-                    style="background-color: #000000;">
+                    style="background-color: #003385;">
                 <span class="fs-5">Пользователь</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end fs-5"
-                style="background: linear-gradient(0deg, #100000, #240000);">
+                style="background: linear-gradient(180deg, #0566ff, #003d9e);">
                 <li><a class="dropdown-item text-white" href="#">Профиль</a></li>
                 <li><a class="dropdown-item text-white" href="#">Настройки</a></li>
                 <li><hr class="dropdown-divider border-white"></li>

@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<div class="col-9" style="background-color:#dbe9ff">
+    <div class="row justify-content-center">
+        <div class="card border-0 shadow-lg w-100" style="background-color: #bcecf0;">
+            <div class="text-center">
+                <span class="fs-3 p-3">{{ object.title }}</span>
+            </div>
+            <hr>
+            <img src="{{ object.preview.url }}" class="card-img-top" alt="preview">
+            <div class="card-body">
+                <p class="card-text">{{ object.text }}</p>
+                <a href="{% url 'blog:post_update' post.pk %}" class="btn " style="background-color: #019ff9;">Изменить "{{ object.title }}"</a>
+                <a href="{% url 'blog:post_delete' post.pk %}" class="btn " style="background-color: #019ff9;">Удалить "{{ object.title }}"</a>
+                <a href="{% url 'blog:post_list' %}" class="btn " style="background-color: #019ff9;">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

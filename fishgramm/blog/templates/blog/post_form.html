@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+    {% if object %}
+    Добавление поста
+    {% else %}
+    Изменение поста
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="col-9" style="background-color:#dbe9ff">
+    <div class="row justify-content-center">
+        <div class="col-md-6" style="background-color: #bcecf0;">
+            <h2 class="text-center">
+                {% if object %}
+                Добавить новый пост
+                {% else %}
+                Изменить текущий пост
+                {% endif %}
+            </h2>
+            <form method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-body">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        {% if object %}
+                        Сохранить
+                        {% else %}
+                        Создать
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

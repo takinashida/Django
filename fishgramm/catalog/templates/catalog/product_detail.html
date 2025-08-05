@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
-{% block title %}{{ product.name }}{% endblock %}
+{% block title %}{{ object.name }}{% endblock %}
 
 {% block content %}
 <div class="col-9">
     <div class="row justify-content-center">
         <div class="card border-0 shadow-lg w-100" style="background-color: #ffebf7;">
             <div class="text-center">
-                <span class="fs-3 p-3">{{ product.name }}</span>
+                <span class="fs-3 p-3">{{ object.name }}</span>
                 <br>
-                <span class="fs-6">{{ product.category.name }}</span>
+                <span class="fs-6">{{ object.category.name }}</span>
             </div>
             <hr>
             <img src="{{ product.img.url }}" class="card-img-top" alt="preview">
             <div class="card-body">
-                <p class="card-text">{{ product.description }}</p>
-                <button class="btn text-white justify-content-center" style="background-color: #660001;">{{ product.price }}$</button>
+                <p class="card-text">{{ object.description }}</p>
+                <button class="btn text-white justify-content-center" style="background-color: #660001;">{{ object.price }}$</button>
             </div>
         </div>
     </div>
