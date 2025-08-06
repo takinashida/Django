@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 from django.urls.base import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
-
+from blog.forms import PostForm
 from blog.models import Post
 
 from fishgramm.settings import EMAIL_HOST_USER
@@ -39,12 +39,15 @@ class PostDetailView(DetailView):
 
 class PostCreateView(CreateView):
     model = Post
-    fields = ['title', 'preview', 'text']
+    form_class = PostForm
+    template_name = 'blog/post_form.html'
     success_url = reverse_lazy("blog:post_list")
 
 class PostUpdateView(UpdateView):
     model = Post
-    fields = ['title', 'preview', 'text']
+    form_class = PostForm
+    template_name = 'blog/post_form.html'
+
     def get_success_url(self):
         return reverse("blog:post_detail", kwargs={"pk": self.object.pk})
 
