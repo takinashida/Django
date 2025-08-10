@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+{% block title %}
+Вход
+{% endblock %}
+
+{% block content %}
+<div class="card p-4 shadow-lg" style="min-width: 320px; background-color: #f86; border: none;">
+    <h2 class="card-title text-center text-white mb-4">Вход</h2>
+    <form action="/login/" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+        <button type="submit" class="btn btn-dark w-100">Войти</button>
+    </form>
+  </div>
+{% endblock %}

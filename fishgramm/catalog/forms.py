@@ -2,6 +2,10 @@ from django import forms
 from catalog.models import Category, Product, Contacts
 from django.core.exceptions import ValidationError
 
+# class StyleFormMixin:
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -12,7 +16,6 @@ class ProductForm(forms.ModelForm):
         name = self.cleaned_data.get("name")
         for bad_word in self.bad_words:
             if bad_word.lower() in name.lower():
-                print("Cработало")
                 self.add_error('name', f"В названии содержатся запрещеные слова! {bad_word}")
         return name
 
@@ -20,7 +23,6 @@ class ProductForm(forms.ModelForm):
         description = self.cleaned_data.get("description")
         for bad_word in self.bad_words:
             if bad_word.lower() in description.lower():
-                print("Cработало")
                 raise ValidationError( f"В описании содержатся запрещеные слова! {bad_word}")
         return description
 
@@ -33,7 +35,6 @@ class ProductForm(forms.ModelForm):
         cleaned_data = super().clean()
         price = cleaned_data.get("price")
         if price < 0:
-            print("Cработало")
             self.add_error("price", "Цена не должна быть отрицательной")
         return cleaned_data
 

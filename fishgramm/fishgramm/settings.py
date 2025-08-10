@@ -16,6 +16,10 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
+
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'catalog',
     'blog',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -75,19 +80,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'fishgramm.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT')
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT')
     }
 }
+
 
 
 # Password validation
@@ -143,3 +150,7 @@ EMAIL_USE_SSL = False                    # не используем SSL
 EMAIL_HOST_USER = os.getenv('EMAIL_USER')     # почта
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASS')  # app password
 DEFAULT_FROM_EMAIL = "<no-reply@fishgramm.com>"
+
+AUTH_USER_MODEL = "users.User"
+LOGIN_REDIRECT_URL = 'catalog:index'
+LOGOUT_REDIRECT_URL = 'catalog:index'

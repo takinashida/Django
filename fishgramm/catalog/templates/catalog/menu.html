@@ -1,6 +1,6 @@
 <div class="col-3 d-flex flex-column" style="background: linear-gradient(0deg, #000000, #660001);">
     <div class="text-center position-relative mt-2">
-        <img src="/static/icons/Fish_logo.png" width="64" height="64" alt="logo"
+        <img src="/static/icons/Fish_logo.png" width="80" height="80" alt="logo"
              class="position-absolute top-0 start-0 ms-3 mt-1">
         <h1 class="text-white mt-4">Меню</h1>
         <hr class="border-white">
@@ -18,22 +18,42 @@
         <hr class="border-white">
         <a href="{% url 'blog:post_list' %}" class="btn text-white" style="background-color: #660001;">Блог</a>
     </div>
-
+    {% if user.is_authenticated %}
     <div class="mt-auto pb-3 text-center text-white">
+        {% if user.avatar %}
+        <img src="{{ user.avatar.url }}" width="48" height="48" alt="avatar"
+             class="rounded-circle" style="object-fit: cover;">
+        {% else %}
         <img src="/media/avatars/avatar.jpg" width="48" height="48" alt="avatar"
              class="rounded-circle" style="object-fit: cover;">
+        {% endif %}
         <div class="btn-group dropup">
             <button class="btn dropdown-toggle text-white mt-2" data-bs-toggle="dropdown"
                     style="background-color: #000000;">
-                <span class="fs-5">Пользователь</span>
+                <span class="fs-5">{{ user.email }}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end fs-5"
                 style="background: linear-gradient(0deg, #100000, #240000);">
-                <li><a class="dropdown-item text-white" href="#">Профиль</a></li>
-                <li><a class="dropdown-item text-white" href="#">Настройки</a></li>
+                <li><a class="dropdown-item text-white" href="{% url 'users:profile' user.pk %}">Профиль</a></li>
+                <li><a class="dropdown-item text-white" href="{% url 'users:change-profile'%}">Настройки</a></li>
                 <li><hr class="dropdown-divider border-white"></li>
-                <li><a class="dropdown-item text-white" href="#">Выход</a></li>
+                <li>
+                    <form method="post" action="{% url 'users:logout' %}">
+                      {% csrf_token %}
+                      <button class="dropdown-item text-white" >Выйти</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
+    {% else %}
+    <div class="row mt-auto text-white pb-3 text-center">
+        <div class="col-3">
+            <a class="btn text-white" style="background-color: #660001;" href="{% url 'users:login' %}">Войти</a>
+        </div>
+        <div class="col-9">
+            <a class="btn text-white" style="background-color: #660001;" href="{% url 'users:register' %}">Зарегестрироваться</a>
+        </div>
+    </div>
+    {% endif %}
 </div>

@@ -4,7 +4,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from blog.forms import PostForm
 from blog.models import Post
 
-from fishgramm.settings import EMAIL_HOST_USER
+from fishgramm.settings import EMAIL_HOST_USER, DEFAULT_FROM_EMAIL
 
 
 # Create your views here.
@@ -55,5 +55,6 @@ class PostUpdateView(UpdateView):
 class PostDeleteView(DeleteView):
     model = Post
     success_url = reverse_lazy("blog:post_list")
+
 
 

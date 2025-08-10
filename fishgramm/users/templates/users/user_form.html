@@ -1,0 +1,32 @@
+{% extends 'users/base.html' %}
+{% block title %}
+        {% if object %}
+        Регистрация
+        {% else %}
+        Изменение данных
+        {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="card p-4 shadow-lg" style="min-width: 320px; background-color: #f86; border: none;">
+
+    <h2 class="card-title text-center text-white mb-4">
+        {% if object %}
+        Регистрация
+        {% else %}
+        Изменение данных
+        {% endif %}
+    </h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+        <button type="submit" class="btn btn-dark w-100">
+            {% if object %}
+            Зарегестрироваться
+            {% else %}
+            Сохранить
+            {% endif %}
+        </button>
+    </form>
+  </div>
+{% endblock %}

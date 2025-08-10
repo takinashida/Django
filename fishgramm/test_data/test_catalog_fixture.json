@@ -1,0 +1,109 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 82,
+    "fields": {
+        "name": "Яблоко",
+        "description": "Зеленое",
+        "img": "contents/image/apple.png",
+        "created_at": "2025-08-06T18:41:21.500Z",
+        "updated_at": "2025-08-06T18:41:21.500Z",
+        "category": 44,
+        "price": 100
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 83,
+    "fields": {
+        "name": "Ананас",
+        "description": "Колючий",
+        "img": "contents/image/pineapple.png",
+        "created_at": "2025-08-06T18:41:21.501Z",
+        "updated_at": "2025-08-06T18:41:21.501Z",
+        "category": 44,
+        "price": 200
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 84,
+    "fields": {
+        "name": "Капуста",
+        "description": "Укутанная",
+        "img": "contents/image/cabbage.png",
+        "created_at": "2025-08-06T18:41:21.502Z",
+        "updated_at": "2025-08-06T18:41:21.502Z",
+        "category": 43,
+        "price": 80
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 85,
+    "fields": {
+        "name": "Кукуруза",
+        "description": "Желтая",
+        "img": "contents/image/corn.png",
+        "created_at": "2025-08-06T18:41:21.503Z",
+        "updated_at": "2025-08-06T18:41:21.503Z",
+        "category": 43,
+        "price": 120
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 86,
+    "fields": {
+        "name": "Груша",
+        "description": "Ламповидная",
+        "img": "contents/image/Pear.jpg",
+        "created_at": "2025-08-06T18:41:21.504Z",
+        "updated_at": "2025-08-06T18:41:21.504Z",
+        "category": 44,
+        "price": 250
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 87,
+    "fields": {
+        "name": "Абрикос",
+        "description": "Ядровой",
+        "img": "contents/image/abrikos.jpeg",
+        "created_at": "2025-08-06T18:41:21.505Z",
+        "updated_at": "2025-08-06T18:41:21.505Z",
+        "category": 44,
+        "price": 180
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 88,
+    "fields": {
+        "name": "Томат",
+        "description": "Коктельные",
+        "img": "contents/image/Tomats.jpg",
+        "created_at": "2025-08-06T18:41:21.506Z",
+        "updated_at": "2025-08-06T18:41:21.506Z",
+        "category": 43,
+        "price": 110
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 43,
+    "fields": {
+        "name": "Овощи",
+        "description": "Полезные и питательные"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 44,
+    "fields": {
+        "name": "Фрукты",
+        "description": "Сладкие и вкусные"
+    }
+}
+]
