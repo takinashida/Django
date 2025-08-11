@@ -1,5 +1,6 @@
 from django.core.validators import FileExtensionValidator
 from django.db import models
+from users.models import User
 
 
 class Category(models.Model):
@@ -23,6 +24,8 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категория")
     price = models.IntegerField()
+    is_published = models.BooleanField( verbose_name="Статус публикации", default=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Владелец товара")
 
     def __str__(self):
         return self.name
@@ -31,6 +34,10 @@ class Product(models.Model):
         verbose_name = "продукт"
         verbose_name_plural = "продукты"
         ordering = ['name']
+        permissions = [
+            ("can_unpublish_product", "Can unpublish product")
+        ]
+
 
 class Contacts(models.Model):
     name = models.CharField(max_length=150, verbose_name="Имя")

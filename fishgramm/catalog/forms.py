@@ -27,9 +27,10 @@ class ProductForm(forms.ModelForm):
         return description
 
     def clean_img(self):
-        img_size = self.cleaned_data.get("img").size
-        if img_size >= (5 * 1024 * 1024):
+        img = self.cleaned_data.get("img")
+        if img.size >= (5 * 1024 * 1024):
             raise ValidationError(f"Вес изображения не должен превышать 5 МБ")
+        return img
 
     def clean(self):
         cleaned_data = super().clean()
@@ -88,3 +89,29 @@ class ContactsForm(forms.ModelForm):
     # name = forms.CharField(max_length=150, label="Имя")
     # email = forms.CharField(max_length=150, label="Email")
     # message = forms.CharField(widget=forms.Textarea({'cols': 60, 'rows': 10}), label="Описание")
+
+
+
+
+class ModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['is_published']
+
+    def __init__(self, *args, **kwargs):
+        super(ModeratorForm, self).__init__(*args, **kwargs)
+        self.bad_words = [
+            'казино',
+            'криптовалюта',
+            'крипта',
+            'биржа',
+            'дешево',
+            'бесплатно',
+            'обман',
+            'полиция',
+            'радар'
+        ]
+
+        self.fields['is_published'].widget.attrs.update({
+            'class': 'form-check-input'
+        })
