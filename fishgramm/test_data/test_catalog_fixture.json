@@ -9,7 +9,9 @@
         "created_at": "2025-08-06T18:41:21.500Z",
         "updated_at": "2025-08-06T18:41:21.500Z",
         "category": 44,
-        "price": 100
+        "price": 100,
+        "is_published": true,
+        "owner": 11
     }
 },
 {
@@ -22,7 +24,9 @@
         "created_at": "2025-08-06T18:41:21.501Z",
         "updated_at": "2025-08-06T18:41:21.501Z",
         "category": 44,
-        "price": 200
+        "price": 200,
+        "is_published": true,
+        "owner": 11
     }
 },
 {
@@ -35,7 +39,9 @@
         "created_at": "2025-08-06T18:41:21.502Z",
         "updated_at": "2025-08-06T18:41:21.502Z",
         "category": 43,
-        "price": 80
+        "price": 80,
+        "is_published": true,
+        "owner": 11
     }
 },
 {
@@ -48,7 +54,9 @@
         "created_at": "2025-08-06T18:41:21.503Z",
         "updated_at": "2025-08-06T18:41:21.503Z",
         "category": 43,
-        "price": 120
+        "price": 120,
+        "is_published": true,
+        "owner": 11
     }
 },
 {
@@ -61,7 +69,9 @@
         "created_at": "2025-08-06T18:41:21.504Z",
         "updated_at": "2025-08-06T18:41:21.504Z",
         "category": 44,
-        "price": 250
+        "price": 250,
+        "is_published": true,
+        "owner": 11
     }
 },
 {
@@ -74,7 +84,9 @@
         "created_at": "2025-08-06T18:41:21.505Z",
         "updated_at": "2025-08-06T18:41:21.505Z",
         "category": 44,
-        "price": 180
+        "price": 180,
+        "is_published": true,
+        "owner": 11
     }
 },
 {
@@ -87,7 +99,9 @@
         "created_at": "2025-08-06T18:41:21.506Z",
         "updated_at": "2025-08-06T18:41:21.506Z",
         "category": 43,
-        "price": 110
+        "price": 110,
+        "is_published": true,
+        "owner": 11
     }
 },
 {

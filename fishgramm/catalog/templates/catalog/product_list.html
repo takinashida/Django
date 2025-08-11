@@ -18,8 +18,10 @@
                 <div class="card-body">
                     <p class="card-text">{{ product.description| truncatechars:100 }}</p>
                     <a href="{% url 'catalog:product_detail' product.pk %}" class="btn text-white" style="background-color: #660001;">{{ product.price }}$</a>
-                    <a href="{% url 'catalog:product_update' product.pk %}" class="btn text-white" style="background-color: #660001;">Изменить {{ product.name }}</a>
-                    <a href="{% url 'catalog:product_delete' product.pk %}" class="btn text-white" style="background-color: #660001;">Удалить {{ product.name }}</a>
+                    {% if product.owner.id == request.user.id %}
+                        <a href="{% url 'catalog:product_update' product.pk %}" class="btn text-white" style="background-color: #660001;">Изменить {{ product.name }}</a>
+                        <a href="{% url 'catalog:product_delete' product.pk %}" class="btn text-white" style="background-color: #660001;">Удалить {{ product.name }}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
