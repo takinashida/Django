@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 import os
+from dis import CACHE
+from email.policy import default
 from pathlib import Path
+
+import django.core.cache.backends.redis
 from dotenv import load_dotenv
 
 load_dotenv(override=True)
@@ -154,3 +158,13 @@ DEFAULT_FROM_EMAIL = "<no-reply@fishgramm.com>"
 AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = 'catalog:index'
 LOGOUT_REDIRECT_URL = 'catalog:index'
+
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": "redis://127.0.0.1:6379/1",
+            "TIMEOUT": 2,
+        }
+    }

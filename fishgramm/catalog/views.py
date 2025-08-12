@@ -1,7 +1,7 @@
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse
 from math import ceil
-
+from django.core.cache import cache
 from django.http.response import HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
 from catalog.forms import ProductForm, ContactsForm, ModeratorForm
@@ -11,6 +11,12 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.edit import UpdateView, DeleteView
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
+from catalog.services import get_category_cache, get_products_cache
+
+from fishgramm.settings import CACHE_ENABLED
+
+
 
 class HomeView(View):
     def get(self, request):
@@ -22,6 +28,11 @@ class ContactsSuccessView(View):
     def get(self, request):
         return render(request, "catalog/contacts_success.html")
 
+class CategoryListView(ListView):
+    model = Product
+    def get_queryset(self):
+        return get_category_cache(self.kwargs['category_pk'])
+
 class ContactsCreateView(CreateView):
     model = Contacts
     form_class = ContactsForm
@@ -30,8 +41,9 @@ class ContactsCreateView(CreateView):
 
 class ProductListView(ListView):
     model = Product
+
     def get_queryset(self):
-        return super().get_queryset().filter(is_published=True)
+        return get_products_cache()
 
 class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
@@ -78,5 +90,6 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
         return super().form_valid(form)
 
 
-
+def ping(request, *args, **kwargs):
+    return HttpResponse("ok")
 # Create your views here.
