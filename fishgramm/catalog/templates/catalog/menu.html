@@ -10,7 +10,17 @@
         <a href="{% url 'catalog:index' %}" class="btn text-white" style="background-color: #660001;">
             Главная
         </a>
-        <a href="{% url 'catalog:product_list' %}" class="btn text-white" style="background-color: #660001;">Все товары</a>
+        <div class="dropdown">
+          <button class="btn text-white dropdown-toggle w-100" type="button" style="background-color: #660001;"  data-bs-toggle="dropdown">
+            Все товары
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'catalog:product_list' %}">Все товары</a></li>
+            <li><a class="dropdown-item" href="{% url 'catalog:category_list' category_pk=43 %}">Овощи</a></li>
+            <li><a class="dropdown-item" href="{% url 'catalog:category_list' category_pk=44 %}">Фрукты</a></li>
+            <li><a class="dropdown-item" href="{% url 'catalog:category_list' category_pk=3 %}">Ошибки Django</a></li>
+          </ul>
+        </div>
         <a href="{% url 'catalog:product_form' %}" class="btn text-white" style="background-color: #660001;">Добавить продукт</a>
         <a href="{% url 'catalog:contacts' %}" class="btn text-white" style="background-color: #660001;">
             Контакты Главных Котеков
